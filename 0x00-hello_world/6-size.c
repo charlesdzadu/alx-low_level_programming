@@ -10,8 +10,8 @@ int main(void)
 {
 	char c = 'C';
 	int it = 24;
-	long lit = 45;
-	unsigned long uit = 34;
+	long int lit = 45;
+	long long int uit = 34;
 	float flt = 4.6;
 
 	printf("Size of a char: %lu byte(s)\n", sizeof(c));
