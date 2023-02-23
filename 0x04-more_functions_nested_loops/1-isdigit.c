@@ -1,12 +1,10 @@
 #include "main.h"
 
 /**
- * isdigit - Check if param is digit
- *
- * @c: parameter
- * Return: 1 if is a success 0 if it is error
+ * _isdigit - checks for a digit (0 through 9)
+ * @c: int to be checked
+ * Return: 1 if c is a digit, 0 otherwise
  */
-
 int _isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
