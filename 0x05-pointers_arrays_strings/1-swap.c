@@ -1,12 +1,10 @@
 #include "main.h"
 
 /**
- * swap_int - Swap two int
- * @a : first int
- * @b : second int
- * Return :  0 Sucess
+ * swap_int - swaps the values of two integers
+ * @a: pointer to first value
+ * @b: pointer to second value
  */
-
 void swap_int(int *a, int *b)
 {
 	int c;
@@ -14,6 +12,4 @@ void swap_int(int *a, int *b)
 	c = *a;
 	*a = *b;
 	*b = c;
-
-	return (0);
 }
