@@ -1,19 +1,18 @@
 #include "main.h"
 
 /**
- * print_listint - Print a list in linked list
+ * listint_len - Get number od node in  linked list
  * @head:  Head of node
  * Return: The number of total node
  */
 
-size_t print_listint(const listint_t *head)
+size_t listint_len(const listint_t *head)
 {
 	int count = 0;
 
-	while (head != null)
+	while (head != NULL)
 	{
 		count++;
-		printf("%d", head->data);
 		head = head->next;
 	}
 
