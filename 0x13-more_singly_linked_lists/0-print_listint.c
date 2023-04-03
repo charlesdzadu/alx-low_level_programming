@@ -10,10 +10,10 @@ size_t print_listint(const listint_t *head)
 {
 	size_t count = 0;
 
-	while (head != null)
+	while (head != NULL)
 	{
 		count++;
-		printf("%d \n", head->n);
+		printf("%d\n", head->n);
 		head = head->next;
 	}
 
