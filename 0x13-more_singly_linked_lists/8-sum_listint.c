@@ -1,4 +1,4 @@
-#include "main.h"
+#include "lists.h"
 
 /**
  * sum_listint - Total  of all the data in a listint_t list

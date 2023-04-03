@@ -1,4 +1,4 @@
-#include "main.h"
+#include "lists.h"
 
 /**
  * insert_nodeint_at_index - Insert node at given index  in a linked list,

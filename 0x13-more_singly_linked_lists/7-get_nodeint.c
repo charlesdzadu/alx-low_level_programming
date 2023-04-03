@@ -1,4 +1,4 @@
-#include "main.h"
+#include "lists.h"
 
 /**
  * get_nodeint_at_index - Get the node at a given index in a linked list

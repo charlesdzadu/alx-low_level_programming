@@ -1,4 +1,4 @@
-#include "main.h"
+#include "lists.h"
 
 /**
  * listint_len - Get number od node in  linked list
@@ -8,7 +8,7 @@
 
 size_t listint_len(const listint_t *head)
 {
-	int count = 0;
+	size_t count = 0;
 
 	while (head != NULL)
 	{

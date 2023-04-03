@@ -1,4 +1,4 @@
-#include "main.h"
+#include "lists.h"
 
 /**
  * pop_listint - Remove the head node of a linked list

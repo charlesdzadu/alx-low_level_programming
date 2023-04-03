@@ -1,4 +1,4 @@
-#include "main.h"
+#include "lists.h"
 
 /**
  * delete_nodeint_at_index - Delete a node int at a given index
