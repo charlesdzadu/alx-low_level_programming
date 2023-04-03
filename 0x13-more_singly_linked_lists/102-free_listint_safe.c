@@ -6,6 +6,7 @@
  *
  * Return: Total of node in a linked list
  */
+
 size_t free_listint_safe(listint_t **h)
 {
 	size_t total = 0;
