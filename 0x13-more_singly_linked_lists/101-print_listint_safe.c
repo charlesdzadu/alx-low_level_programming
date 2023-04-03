@@ -4,6 +4,7 @@
  * @head: Head of linked list
  * Return: Counter of element in linked list
  */
+
 size_t print_listint_safe(const listint_t *head)
 {
 	const listint_t *head1 = NULL;
@@ -27,7 +28,7 @@ size_t print_listint_safe(const listint_t *head)
 				return (n);
 			}
 			head2 = head2->next;
-			node;
+			node++;
 		}
 		if (!head)
 			exit(98);
