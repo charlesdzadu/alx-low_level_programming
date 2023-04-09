@@ -1,13 +1,10 @@
 #include "main.h"
 
-char *create_buffer(char *file);
-void close_file(int fd);
-
 /**
- * create_buffer - Allocates 1024 bytes for a buffer.
- * @file: The name of the file buffer is storing chars for.
+ * create_buffer - Allocates bytes for a buffer.
+ * @file: The filename
  *
- * Return: A pointer to the newly-allocated buffer.
+ * Return: A pointer to a buffer
  */
 char *create_buffer(char *file)
 {
@@ -26,26 +23,26 @@ char *create_buffer(char *file)
 }
 
 /**
- * close_file - Closes file descriptors.
- * @fd: The file descriptor to be closed.
+ * close_file - Closes file .
+ * @op: The file desc to be closed.
  */
-void close_file(int fd)
+void close_file(int op)
 {
 	int c;
 
-	c = close(fd);
+	c = close(op);
 
 	if (c == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", op);
 		exit(100);
 	}
 }
 
 /**
- * main - Copies the contents of a file to another file.
- * @argc: The number of arguments supplied to the program.
- * @argv: An array of pointers to the arguments.
+ * main - Copies the contents of a file to another 
+ * @argc: The number of arguments
+ * @argv: An array of pointers
  *
  * Return: 0 on success.
  */
