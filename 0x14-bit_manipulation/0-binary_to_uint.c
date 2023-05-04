@@ -4,7 +4,7 @@
  * binary_to_uint - Convert a binary list to int value
  * @b: Binary value
  *
- * Return : Int value of binary
+ * Return: Int value of binary
  */
 
 unsigned int binary_to_uint(const char *b)
