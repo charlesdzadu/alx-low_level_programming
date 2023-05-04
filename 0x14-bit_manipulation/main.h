@@ -12,5 +12,6 @@ int set_bit(unsigned long int *number, unsigned int i);
 int _putchar(char c);
 int clear_bit(unsigned long int *number, unsigned int i);
 unsigned int flip_bits(unsigned long int first, unsigned long int second);
+int get_endianness(void);
 
 #endif
