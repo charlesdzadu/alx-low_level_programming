@@ -9,7 +9,7 @@ void close_file(int fd)
 {
 	int c = close(fd);
 
-	if (c < 1)
+	if (c < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d", fd);
 		exit(100);
