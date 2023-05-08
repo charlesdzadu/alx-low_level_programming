@@ -27,6 +27,7 @@ int main(int argc, char *argv[])
 {
 	int f1_d, f2_d, rd;
 	char buffer[1024];
+	mode_t old_mask;
 
 	if (argc != 3)
 	{
@@ -40,8 +41,9 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
+	old_mask = umask(0);
 	f2_d = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-
+	umask(old_mask);
 	while ((rd = read(f1_d, buffer, 1024)) > 0)
 	{
 		if (f2_d < 0 || write(f2_d, buffer, rd) != rd)
