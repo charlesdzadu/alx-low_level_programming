@@ -61,4 +61,6 @@ int main(int argc, char *argv[])
 	}
 	close_file(f1_d);
 	close_file(f2_d);
+
+	return (0);
 }
