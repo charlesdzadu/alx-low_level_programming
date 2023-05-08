@@ -25,44 +25,38 @@ void close_file(int fd)
 
 int main(int argc, char *argv[])
 {
-	int f1_d, f2_d, rd, wr;
-	char *buffer;
+	int f1_d, f2_d, rd;
+	char buffer[1024];
 
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp file_form file_to");
+		dprintf(STDERR_FILENO, "Usage: cp file_form file_to\n");
 		exit(97);
 	}
-	buffer = malloc(sizeof(char) * 1024);
-	if (buffer == NULL)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		exit(99);
-	}
-	f1_d = open(argv[1], O_RDONLY);
-	rd = read(f1_d, buffer, 1024);
-	f2_d = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	do {
-		if (f1_d < 0 || rd < 0)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-			free(buffer);
-			exit(98);
-		}
 
-		wr = write(f2_d, buffer, rd);
-		if (f2_d < 0 || wr < 0)
+	f1_d = open(argv[1], O_RDONLY);
+	if (f1_d < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
+	f2_d = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+
+	while ((rd = read(f1_d, buffer, 1024)) > 0)
+	{
+		if (f2_d < 0 || write(f2_d, buffer, rd) != rd)
 		{
-			dprintf(STDERR_FILENO, "Error: can't write to %s\n", argv[2]);
-			free(buffer);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+			close(f2_d);
 			exit(99);
 		}
+	}
 
-		rd = read(f1_d, buffer, 1024);
-		f2_d = open(argv[2], O_WRONLY | O_APPEND);
-
-	} while (rd > 0);
-	free(buffer);
+	if (rd < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
 	close_file(f1_d);
 	close_file(f2_d);
 }
