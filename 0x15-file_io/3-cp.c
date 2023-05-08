@@ -46,13 +46,15 @@ int main(int argc, char *argv[])
 		if (f1_d < 0 || rd < 0)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			free(buffer);
 			exit(98);
 		}
 
-		wr = write(f2_d, buffer, 1024);
+		wr = write(f2_d, buffer, rd);
 		if (f2_d < 0 || wr < 0)
 		{
 			dprintf(STDERR_FILENO, "Error: can't write to %s\n", argv[2]);
+			free(buffer);
 			exit(99);
 		}
 
